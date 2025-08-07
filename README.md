@@ -1,0 +1,19 @@
+## What is this
+
+An example repo for using [Zelda Rose](https://zeldarose.readthedocs.io) to train/fine tune a next token prediction (aka causal lm) transformer model. It includes data from the [Diplomacy](https://github.com/DenisPeskoff/2020_acl_diplomacy/) and [CORAAL](https://oraal.github.io/coraal) corpora. I'll figure out the exact licence later, but assume CC-BY 4.0.
+
+## How to run this
+
+```
+uv pip install -U -r requirements.lst
+zeldarose transformer --config ntp-config.toml  --strategy ddp_find_unused_parameters_true --accelerator gpu --num-devices 2 --tokenizer "EleutherAI/pythia-160m-deduped" --pretrained-model "EleutherAI/pythia-160m-deduped"  --out-dir local/train-out --model-name "pythia-160m-deduped+diplomacy" --max-epochs 8 --device-batch-size 8 --precision 32-true --tf32-mode medium --val-data diplomacy/validation.txt  --num-workers 6 --step-save-period 4096 diplomacy/train.txt
+```
+
+- The directory you gave to `--out-dir` will have the final and partway models and tf event file that you can peruse using tensorboard.
+
+## How to play with this
+
+- Tuning parameters are in `ntp-config.toml`
+  - See <https://zeldarose.readthedocs.io/en/latest/training_configurations.html> for what they mean
+- Parameters in the CLI like `--precision`, see `zeldarose --help`
+- Use your own data files obviously, the format is [raw text](https://zeldarose.readthedocs.io/en/latest/tasks/mlm.html#inputs-and-outputs)
