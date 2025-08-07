@@ -17,3 +17,24 @@ zeldarose transformer --config ntp-config.toml  --strategy ddp_find_unused_param
   - See <https://zeldarose.readthedocs.io/en/latest/training_configurations.html> for what they mean
 - Parameters in the CLI like `--precision`, see `zeldarose --help`
 - Use your own data files obviously, the format is [raw text](https://zeldarose.readthedocs.io/en/latest/tasks/mlm.html#inputs-and-outputs)
+
+
+## Does it work?
+
+Looks like it?
+
+```python
+>>> from transformers import pipeline
+>>> generator = pipeline(model="local/train-out/pythia-160m-deduped+diplomacy", task="text-generation")
+Device set to use cuda:0
+>>> generator("I can't believe you did such a", do_sample=False)
+The following generation flags are not valid and may be ignored: ['temperature']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+Setting `pad_token_id` to `eos_token_id`:0 for open-end generation.
+[{'generated_text': "I can't believe you did such a great turn."}]
+>>> generator_orig = pipeline(model="EleutherAI/pythia-160m-deduped", task="text-generation")
+Device set to use cuda:0
+>>> generator_orig("I can't believe you did such a", do_sample=False)
+The following generation flags are not valid and may be ignored: ['temperature']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+Setting `pad_token_id` to `eos_token_id`:0 for open-end generation.
+[{'generated_text': 'I can\'t believe you did such a thing." "I\'m sorry." "I\'m sorry." "I\'m sorry." "I\'m sorry." "I\'m sorry." "I\'m sorry." "I\'m sorry." "I\'m sorry." "I\'m sorry." "I\'m sorry." "I\'m sorry." "I\'m sorry." "I\'m sorry." "I\'m sorry." "I\'m sorry." "I\'m sorry." "I\'m sorry." "I\'m sorry." "I\'m sorry." "I\'m sorry." "I\'m sorry." "I\'m sorry." "I\'m sorry." "I\'m sorry." "I\'m sorry." "I\'m sorry." "I\'m sorry." "I\'m sorry." "I\'m sorry." "I\'m sorry." "I\'m sorry." "I\'m sorry." "I\'m sorry." "I\'m sorry." "I\'m sorry." "I\'m sorry." "I\'m sorry." "I\'m sorry." "I\'m sorry." "I\'m sorry." "I\'m sorry." "I\'m sorry." "I\'m sorry." "I\'m sorry." "I\'m sorry." "I\'m sorry." "I\'m sorry." "I\'m sorry." "I\'m sorry." "I\'m sorry." "I\'m sorry'}]
+```
