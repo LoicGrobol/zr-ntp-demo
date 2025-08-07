@@ -38,3 +38,8 @@ The following generation flags are not valid and may be ignored: ['temperature']
 Setting `pad_token_id` to `eos_token_id`:0 for open-end generation.
 [{'generated_text': 'I can\'t believe you did such a thing." "I\'m sorry." "I\'m sorry." "I\'m sorry." "I\'m sorry." "I\'m sorry." "I\'m sorry." "I\'m sorry." "I\'m sorry." "I\'m sorry." "I\'m sorry." "I\'m sorry." "I\'m sorry." "I\'m sorry." "I\'m sorry." "I\'m sorry." "I\'m sorry." "I\'m sorry." "I\'m sorry." "I\'m sorry." "I\'m sorry." "I\'m sorry." "I\'m sorry." "I\'m sorry." "I\'m sorry." "I\'m sorry." "I\'m sorry." "I\'m sorry." "I\'m sorry." "I\'m sorry." "I\'m sorry." "I\'m sorry." "I\'m sorry." "I\'m sorry." "I\'m sorry." "I\'m sorry." "I\'m sorry." "I\'m sorry." "I\'m sorry." "I\'m sorry." "I\'m sorry." "I\'m sorry." "I\'m sorry." "I\'m sorry." "I\'m sorry." "I\'m sorry." "I\'m sorry." "I\'m sorry." "I\'m sorry." "I\'m sorry." "I\'m sorry." "I\'m sorry'}]
 ```
+
+Also numbers go up (or down, but improving in any case):
+
+<img width="1146" height="971" alt="A screenshot of tensoboard, showing that train and validation accuracies go up and loss and perplexities go down while training." src="https://github.com/user-attachments/assets/279e252e-0849-4de9-909f-f71214d58600" />
+
