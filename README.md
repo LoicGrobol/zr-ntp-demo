@@ -19,7 +19,7 @@ zeldarose transformer --config ntp-config.toml  --strategy ddp_find_unused_param
 - Use your own data files obviously, the format is [raw text](https://zeldarose.readthedocs.io/en/latest/tasks/mlm.html#inputs-and-outputs)
 
 
-## Does it work?
+## Does it work?
 
 Looks like it?
 
@@ -38,6 +38,8 @@ The following generation flags are not valid and may be ignored: ['temperature']
 Setting `pad_token_id` to `eos_token_id`:0 for open-end generation.
 [{'generated_text': 'I can\'t believe you did such a thing." "I\'m sorry." "I\'m sorry." "I\'m sorry." "I\'m sorry." "I\'m sorry." "I\'m sorry." "I\'m sorry." "I\'m sorry." "I\'m sorry." "I\'m sorry." "I\'m sorry." "I\'m sorry." "I\'m sorry." "I\'m sorry." "I\'m sorry." "I\'m sorry." "I\'m sorry." "I\'m sorry." "I\'m sorry." "I\'m sorry." "I\'m sorry." "I\'m sorry." "I\'m sorry." "I\'m sorry." "I\'m sorry." "I\'m sorry." "I\'m sorry." "I\'m sorry." "I\'m sorry." "I\'m sorry." "I\'m sorry." "I\'m sorry." "I\'m sorry." "I\'m sorry." "I\'m sorry." "I\'m sorry." "I\'m sorry." "I\'m sorry." "I\'m sorry." "I\'m sorry." "I\'m sorry." "I\'m sorry." "I\'m sorry." "I\'m sorry." "I\'m sorry." "I\'m sorry." "I\'m sorry." "I\'m sorry." "I\'m sorry." "I\'m sorry." "I\'m sorry'}]
 ```
+
+It is certainly more diplomatic after fine-tuning in any case.
 
 Also numbers go up (or down, but improving in any case):
 
